@@ -27,6 +27,14 @@ Regras Importantes:
 - Nunca invente tênis que o atleta não possui como indicação principal: a escolha TEM que ser dentre as opções que ele mencionou, a menos que nenhum seja minimamente seguro para o treino.
 `;
 
+// Lista de modelos ordenada por prioridade (com fallback se o primário estiver sobrecarregado)
+const FALLBACK_MODELS = [
+  "gemini-2.5-flash",
+  "gemini-2.0-flash",
+  "gemini-2.5-flash-lite",
+  "gemini-1.5-flash",
+];
+
 export async function POST(req: Request) {
   try {
     const { messages } = await req.json();
@@ -44,25 +52,41 @@ export async function POST(req: Request) {
 
     const ai = new GoogleGenAI({ apiKey });
 
-    // Format chat history for Google GenAI SDK
-    // The messages array: [{ role: 'user' | 'assistant', content: string }]
     const contents = messages.map((m: { role: string; content: string }) => ({
       role: m.role === "assistant" ? "model" : "user",
       parts: [{ text: m.content }],
     }));
 
-    const response = await ai.models.generateContent({
-      model: "gemini-2.5-flash",
-      contents,
-      config: {
-        systemInstruction: SYSTEM_INSTRUCTION,
-        temperature: 0.7,
-      },
-    });
+    let lastError: any = null;
+    let reply: string | null = null;
 
-    const reply =
-      response.text ||
-      "Não consegui analisar suas opções no momento. Tente novamente!";
+    // Tenta os modelos com fallback automático em caso de 503 (High Demand / Spikes)
+    for (const modelName of FALLBACK_MODELS) {
+      try {
+        const response = await ai.models.generateContent({
+          model: modelName,
+          contents,
+          config: {
+            systemInstruction: SYSTEM_INSTRUCTION,
+            temperature: 0.7,
+          },
+        });
+
+        if (response.text) {
+          reply = response.text;
+          break;
+        }
+      } catch (err: any) {
+        lastError = err;
+        console.warn(`Modelo ${modelName} indisponível ou com erro, tentando próximo...`, err?.message);
+        // Se for 503 (Unavailable) ou 429 (Rate limit), continua para o próximo modelo do fallback
+        continue;
+      }
+    }
+
+    if (!reply) {
+      throw lastError || new Error("Serviço temporariamente indisponível.");
+    }
 
     return NextResponse.json({ reply });
   } catch (error: any) {
@@ -70,10 +94,9 @@ export async function POST(req: Request) {
     return NextResponse.json(
       {
         error:
-          error?.message ||
-          "Erro ao processar sua recomendação com o Gemini. Verifique sua chave de API.",
+          "Os servidores do Google Gemini estão com pico de demanda momentâneo. Por favor, tente enviar novamente em alguns segundos.",
       },
-      { status: 500 }
+      { status: 503 }
     );
   }
 }
