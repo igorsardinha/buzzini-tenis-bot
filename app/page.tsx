@@ -15,16 +15,17 @@ interface Message {
 	timestamp: string;
 }
 
-const COMMON_WORKOUTS = [
-	"🏃‍♂️ Rodagem Leve / Regenerativo",
-	"⚡ Tiros / Intervalado",
-	"🏔️ Longão de Fim de Semana",
-	"⏱️ Treino de Ritmo / Tempo Run",
-	"🏁 Dia de Prova / Competição",
+const QUICK_PROMPTS = [
+	{ label: "🏃‍♂️ Treino de Hoje", text: "Treino de hoje: " },
+	{ label: "🛒 Quero Comprar um Tênis", text: "Estou querendo comprar um tênis novo. Meu objetivo é: " },
+	{ label: "⚡ Tiros / Intervalado", text: "Treino de tiros/intervalado. Tenho os tênis: " },
+	{ label: "🏔️ Longão de Fim de Semana", text: "Longão de fim de semana. Meus tênis são: " },
+	{ label: "🚀 Tênis com Placa de Carbono", text: "Qual tênis com placa de carbono você recomenda comprar?" },
+	{ label: "💰 Melhor Custo-Benefício", text: "Qual o melhor tênis de corrida custo-benefício para comprar atualmente?" },
 ];
 
 const INITIAL_GREETING =
-	"Fala atleta Buzzini! 🏃‍♂️💨\n\nEu sou o seu **Shoe Coach da Buzzini**. Vou te ajudar a escolher o tênis ideal pro seu treino de hoje!\n\nPra começar, me conta:\n- **Qual é o seu treino hoje?**\n- **Quais tênis você tem disponíveis no armário?**";
+	"Fala atleta Buzzini! 🏃‍♂️💨\n\nEu sou o seu **Shoe Coach da Buzzini**. Estou aqui para:\n1. 👟 **Escolher o melhor tênis para o seu treino de hoje** (entre os que você já tem no armário);\n2. 🛒 **Indicar o tênis ideal para você comprar** (com base no seu objetivo, orçamento e perfil).\n\nComo posso te ajudar hoje?";
 
 export default function Home() {
 	const [messages, setMessages] = useState<Message[]>([
@@ -73,7 +74,7 @@ export default function Home() {
 		sendGTMEvent({
 			event: "athlete_message_sent",
 			message_length: text.length,
-			is_quick_suggestion: COMMON_WORKOUTS.some((w) => text.includes(w)),
+			is_quick_suggestion: QUICK_PROMPTS.some((w) => text.includes(w.label)),
 		});
 
 		if (textareaRef.current) {
@@ -317,26 +318,22 @@ export default function Home() {
 					<div ref={messagesEndRef} />
 				</main>
 
-				{/* Sugestões rápidas de treino */}
+				{/* Sugestões rápidas de treino & compra */}
 				{messages.length <= 3 && !isLoading && (
 					<div className="px-4 py-2 border-t border-neutral-800/60 bg-neutral-950/50">
 						<p className="text-[11px] text-neutral-400 mb-1.5 flex items-center gap-1 font-sans">
-							<Flame className="w-3 h-3 text-orange-500" /> Exemplos rápidos de
-							treino:
+							<Flame className="w-3 h-3 text-orange-500" /> Sugestões rápidas:
 						</p>
 						<div className="flex gap-1.5 overflow-x-auto no-scrollbar pb-1">
-							{COMMON_WORKOUTS.map((item, idx) => (
+							{QUICK_PROMPTS.map((item, idx) => (
 								<button
 									key={idx}
 									onClick={() => {
-										setInput(
-											(prev) =>
-												`${prev ? prev + " - " : ""}${item}. Meus tênis: `,
-										);
+										setInput(item.text);
 										textareaRef.current?.focus();
 									}}
 									className="whitespace-nowrap shrink-0 text-[11px] bg-neutral-800/90 hover:bg-neutral-700 active:scale-95 transition-all text-neutral-300 px-2.5 py-1.5 rounded-full border border-neutral-700 cursor-pointer font-sans">
-									{item}
+									{item.label}
 								</button>
 							))}
 						</div>
@@ -363,7 +360,7 @@ export default function Home() {
 								)}px`;
 							}}
 							onKeyDown={handleKeyDown}
-							placeholder="Ex: Tiros 10x400m, tenho o NovaBlast, Corre 5..."
+							placeholder="Pergunte sobre um treino ou peça indicação de compra..."
 							rows={1}
 							className="flex-1 bg-transparent text-sm text-neutral-100 placeholder-neutral-500 px-2 py-1.5 resize-none focus:outline-none max-h-28 text-[14px] font-sans"
 						/>
