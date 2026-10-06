@@ -10,12 +10,68 @@ const sora = Sora({
   display: "swap",
 });
 
+const APP_TITLE = "Buzzini Shoe Coach | Qual tênis usar hoje?";
+const APP_DESCRIPTION =
+  "Descubra qual é o tênis ideal para o seu treino de corrida hoje entre os que você tem, ou receba indicações certeiras de compra com a inteligência da Buzzini Assessoria Esportiva.";
+
 export const metadata: Metadata = {
-  title: "Buzzini Shoe Coach | Qual tênis usar hoje?",
-  description:
-    "Agente inteligente para indicação do melhor tênis para o seu treino de corrida.",
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "https://tenis.buzzini.com.br"
+  ),
+  title: {
+    default: APP_TITLE,
+    template: "%s | Buzzini Assessoria Esportiva",
+  },
+  description: APP_DESCRIPTION,
+  applicationName: "Buzzini Shoe Coach",
+  authors: [{ name: "Buzzini Assessoria Esportiva" }],
+  generator: "Next.js",
+  keywords: [
+    "Buzzini",
+    "Buzzini Assessoria Esportiva",
+    "Tênis de Corrida",
+    "Qual tênis usar",
+    "Corrida de rua",
+    "Treino de tiro",
+    "Longão",
+    "Placa de carbono",
+    "Recomendação de tênis",
+  ],
+  creator: "Buzzini",
+  publisher: "Buzzini Assessoria Esportiva",
+  category: "Sports",
+
+  // Open Graph (WhatsApp, Facebook, LinkedIn, etc.)
+  openGraph: {
+    type: "website",
+    locale: "pt_BR",
+    url: "/",
+    siteName: "Buzzini Shoe Coach",
+    title: "Buzzini Shoe Coach 👟 Qual tênis calçar no seu treino hoje?",
+    description: APP_DESCRIPTION,
+  },
+
+  // Twitter / X Card
+  twitter: {
+    card: "summary_large_image",
+    title: "Buzzini Shoe Coach 👟 Qual tênis calçar no seu treino hoje?",
+    description: APP_DESCRIPTION,
+  },
+
+  // Ícones
   icons: {
-    icon: "/logo_buzzini.svg",
+    icon: [
+      { url: "/logo_buzzini.svg", type: "image/svg+xml" },
+    ],
+    apple: [
+      { url: "/logo_buzzini.svg", type: "image/svg+xml" },
+    ],
+  },
+
+  // Robôs de busca
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
