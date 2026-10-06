@@ -46,13 +46,27 @@ REGRAS GERAIS:
 - Destaque o DNA da Buzzini: foco em constância, segurança biomecânica e evolução real do atleta!
 `;
 
-// Lista de modelos ordenada por prioridade (com fallback se o primário estiver sobrecarregado)
-const FALLBACK_MODELS = [
+// Conjunto de modelos de alta velocidade testados e ativos na API
+const POOL_OF_MODELS = [
   "gemini-2.5-flash",
-  "gemini-2.0-flash",
-  "gemini-2.5-flash-lite",
-  "gemini-1.5-flash",
+  "gemini-3.5-flash",
+  "gemini-3.5-flash-lite",
+  "gemini-flash-lite-latest",
+  "gemini-3.1-flash-lite-preview",
+  "gemini-3.8-flash",
+  "gemini-3.7-flash",
+  "gemini-flash-latest",
 ];
+
+// Algoritmo Fisher-Yates para embaralhar a lista de modelos a cada requisição (Load Balancing)
+function shuffleArray<T>(array: T[]): T[] {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
 
 export async function POST(req: Request) {
   try {
@@ -76,10 +90,14 @@ export async function POST(req: Request) {
       parts: [{ text: m.content }],
     }));
 
+    // Sorteia aleatoriamente a ordem para distribuir a carga (evita estourar o limite de 1 modelo)
+    const prioritizedModels = shuffleArray(POOL_OF_MODELS);
+
     let lastError: any = null;
     let reply: string | null = null;
+    let successfulModel: string | null = null;
 
-    for (const modelName of FALLBACK_MODELS) {
+    for (const modelName of prioritizedModels) {
       try {
         const response = await ai.models.generateContent({
           model: modelName,
@@ -92,11 +110,12 @@ export async function POST(req: Request) {
 
         if (response.text) {
           reply = response.text;
+          successfulModel = modelName;
           break;
         }
       } catch (err: any) {
         lastError = err;
-        console.warn(`Modelo ${modelName} indisponível, tentando próximo...`, err?.message);
+        console.warn(`[Failover] Modelo ${modelName} retornou erro (${err?.status || err?.message}). Tentando próximo da fila aleatória...`);
         continue;
       }
     }
@@ -105,13 +124,13 @@ export async function POST(req: Request) {
       throw lastError || new Error("Serviço temporariamente indisponível.");
     }
 
-    return NextResponse.json({ reply });
+    return NextResponse.json({ reply, modelUsed: successfulModel });
   } catch (error: any) {
     console.error("Erro na API Gemini:", error);
     return NextResponse.json(
       {
         error:
-          "Os servidores do Google Gemini estão com pico de demanda momentâneo. Por favor, tente enviar novamente em alguns segundos.",
+          "Os servidores do Google estão passando por alta demanda no momento. Por favor, tente enviar sua pergunta novamente em instantes.",
       },
       { status: 503 }
     );
