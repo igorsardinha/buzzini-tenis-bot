@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Sora } from "next/font/google";
+import { GoogleTagManager } from "@next/third-parties/google";
 import "./globals.css";
 
 const sora = Sora({
@@ -31,12 +32,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
+
   return (
     <html
       lang="pt-BR"
       className={`${sora.variable} h-full antialiased bg-neutral-950`}
     >
       <body className="min-h-full bg-neutral-950 text-neutral-100 selection:bg-orange-500 selection:text-white font-sans">
+        {gtmId && <GoogleTagManager gtmId={gtmId} />}
         {children}
       </body>
     </html>

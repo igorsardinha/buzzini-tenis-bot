@@ -6,6 +6,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Send, Sparkles, RotateCcw, Flame, ShieldAlert } from "lucide-react";
 import confetti from "canvas-confetti";
+import { sendGTMEvent } from "@/lib/gtm";
 
 interface Message {
 	id: string;
@@ -69,6 +70,12 @@ export default function Home() {
 		setMessages(newMessages);
 		setInput("");
 
+		sendGTMEvent({
+			event: "athlete_message_sent",
+			message_length: text.length,
+			is_quick_suggestion: COMMON_WORKOUTS.some((w) => text.includes(w)),
+		});
+
 		if (textareaRef.current) {
 			textareaRef.current.style.height = "auto";
 		}
@@ -99,6 +106,10 @@ export default function Home() {
 				data.reply.toLowerCase().includes("recomendo") ||
 				data.reply.toLowerCase().includes("escolha ideal")
 			) {
+				sendGTMEvent({
+					event: "shoe_recommendation_received",
+				});
+
 				try {
 					confetti({
 						particleCount: 40,
@@ -130,6 +141,7 @@ export default function Home() {
 	};
 
 	const handleReset = () => {
+		sendGTMEvent({ event: "chat_reset" });
 		setMessages([
 			{
 				id: Date.now().toString(),
