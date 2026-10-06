@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Buzzini Shoe Coach 👟🏃‍♂️
 
-## Getting Started
+Agente conversacional especializado em corrida da **Buzzini Assessoria Esportiva**, desenvolvido com **Next.js (App Router)**, **Tailwind CSS**, **Google Gemini API (@google/genai)** e interface 100% otimizada para mobile.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Como rodar localmente
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. Entre no diretório do projeto:
+   ```bash
+   cd buzzini-tenis-bot
+   ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+2. Crie o arquivo `.env.local`:
+   ```bash
+   cp .env.local.example .env.local
+   ```
+   Abra `.env.local` e insira sua chave da API do Google Gemini:
+   ```env
+   GEMINI_API_KEY=sua_chave_aqui
+   ```
+   *(Obtenha gratuitamente no [Google AI Studio](https://aistudio.google.com/app/apikey))*
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. Inicie o servidor local:
+   ```bash
+   npm run dev
+   ```
+   Acesse `http://localhost:3000` pelo navegador (ou use a visualização de dispositivos móveis no DevTools com `F12` > `Ctrl+Shift+M`).
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🌐 Como fazer o deploy na Vercel
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Suba este repositório para o seu GitHub (ou use a CLI `vercel`):
+   ```bash
+   git add .
+   git commit -m "feat: buzzini shoe coach bot"
+   # vincule ao seu repo no github
+   ```
+2. Na [Vercel](https://vercel.com):
+   - Importe o repositório **buzzini-tenis-bot**.
+   - Em **Environment Variables**, adicione:
+     - `GEMINI_API_KEY`: sua chave de API do Gemini.
+3. Clique em **Deploy**! A Vercel cuidará do build automaticamente.
