@@ -17,11 +17,26 @@ interface Message {
 
 const QUICK_PROMPTS = [
 	{ label: "🏃‍♂️ Treino de Hoje", text: "Treino de hoje: " },
-	{ label: "🛒 Quero Comprar um Tênis", text: "Estou querendo comprar um tênis novo. Meu objetivo é: " },
-	{ label: "⚡ Tiros / Intervalado", text: "Treino de tiros/intervalado. Tenho os tênis: " },
-	{ label: "🏔️ Longão de Fim de Semana", text: "Longão de fim de semana. Meus tênis são: " },
-	{ label: "🚀 Tênis com Placa de Carbono", text: "Qual tênis com placa de carbono você recomenda comprar?" },
-	{ label: "💰 Melhor Custo-Benefício", text: "Qual o melhor tênis de corrida custo-benefício para comprar atualmente?" },
+	{
+		label: "🛒 Quero Comprar um Tênis",
+		text: "Estou querendo comprar um tênis novo. Meu objetivo é: ",
+	},
+	{
+		label: "⚡ Tiros / Intervalado",
+		text: "Treino de tiros/intervalado. Tenho os tênis: ",
+	},
+	{
+		label: "🏔️ Longão de Fim de Semana",
+		text: "Longão de fim de semana. Meus tênis são: ",
+	},
+	{
+		label: "🚀 Tênis com Placa de Carbono",
+		text: "Qual tênis com placa de carbono você recomenda comprar?",
+	},
+	{
+		label: "💰 Melhor Custo-Benefício",
+		text: "Qual o melhor tênis de corrida custo-benefício para comprar atualmente?",
+	},
 ];
 
 const INITIAL_GREETING =
@@ -309,7 +324,7 @@ export default function Home() {
 									<div className="w-2 h-2 rounded-full bg-orange-500 animate-bounce"></div>
 								</div>
 								<span className="text-xs text-neutral-400 pl-1 font-sans">
-									Analisando seus tênis e o treino...
+									Analisando sua resposta...
 								</span>
 							</div>
 						</div>
