@@ -58,6 +58,18 @@ export default function Home() {
 	const messagesEndRef = useRef<HTMLDivElement>(null);
 	const textareaRef = useRef<HTMLTextAreaElement>(null);
 
+	const adjustTextareaHeight = () => {
+		if (textareaRef.current) {
+			textareaRef.current.style.height = "auto";
+			const scrollHeight = textareaRef.current.scrollHeight;
+			textareaRef.current.style.height = `${Math.min(scrollHeight, 160)}px`;
+		}
+	};
+
+	useEffect(() => {
+		adjustTextareaHeight();
+	}, [input]);
+
 	const scrollToBottom = () => {
 		messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
 	};
@@ -366,18 +378,11 @@ export default function Home() {
 						<textarea
 							ref={textareaRef}
 							value={input}
-							onChange={(e) => {
-								setInput(e.target.value);
-								e.target.style.height = "auto";
-								e.target.style.height = `${Math.min(
-									e.target.scrollHeight,
-									120,
-								)}px`;
-							}}
+							onChange={(e) => setInput(e.target.value)}
 							onKeyDown={handleKeyDown}
 							placeholder="Pergunte sobre um treino ou peça indicação de compra..."
 							rows={1}
-							className="flex-1 bg-transparent text-sm text-neutral-100 placeholder-neutral-500 px-2 py-1.5 resize-none focus:outline-none max-h-28 text-[14px] font-sans"
+							className="flex-1 bg-transparent text-sm text-neutral-100 placeholder-neutral-500 px-2.5 py-2 resize-none focus:outline-none min-h-[40px] max-h-40 leading-relaxed text-[14px] font-sans overflow-y-auto"
 						/>
 
 						<button
@@ -393,6 +398,10 @@ export default function Home() {
 							<Send className="w-4 h-4" />
 						</button>
 					</form>
+
+					<p className="text-[10px] text-center text-neutral-500 mt-2 font-sans">
+						O Bot da Buzzini utiliza inteligência artificial e pode cometer erros.
+					</p>
 				</footer>
 			</div>
 		</div>
