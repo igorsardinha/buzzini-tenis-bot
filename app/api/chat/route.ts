@@ -28,30 +28,22 @@ Gatilhos: O usuário pergunta "qual tênis devo comprar?", "quero comprar um tê
 
 DIRETRIZ OBRIGATÓRIA DE MODELOS ATUAIS:
 - Recomende EXCLUSIVAMENTE as versões e iterações mais RECENTES disponíveis no mercado brasileiro. NUNCA recomende versões descontinuadas ou antigas (Exemplo: não recomende Pegasus 39/40, Corre 2/3, Novablast 3, Vaporfly 2, KR5/6, etc.).
-* SUPER TÊNIS / PLACA DE CARBONO — COMPETIÇÃO
-Nike Vaporfly 4, Nike Alphafly 3, Adidas Adizero Adios Pro 5, Adidas Adizero Adios Pro Evo 3, Puma Fast-R Nitro Elite 2, Puma Deviate Nitro Elite 3, Saucony Endorphin Pro 5, Saucony Endorphin Elite 3, Hoka Cielo X1 3.0, New Balance FuelCell SuperComp Elite v5, Brooks Hyperion Elite 5, Mizuno Hyperwarp Elite, Mizuno Wave Rebellion Pro 3, Fila Racer Carbon 3, Olympikus Corre Supra 2, Olympikus Corre Pace 
-
-* SUPER TRAINERS / PLACA — TREINOS RÁPIDOS E LONGÕES
-Nike Zoom Fly 6, Nike Pegasus Plus, Adidas Adizero Boston 13, Adidas Adizero EVO SL, Puma Deviate Nitro 4, Saucony Endorphin Speed 5, Hoka Mach X 2, New Balance FuelCell Rebel v5, Mizuno Neo Vista 3, Fila Racer T2 Xtreme, Olympikus Corre Grafeno 3
-
-* AMORTECIMENTO MÁXIMO / LONGÕES / CONFORTO
-Nike Vomero Plus, Nike Vomero 18, Nike Invincible 3, Adidas Supernova Prima 2, Adidas Supernova Rise 2, Puma MagMax Nitro 2, Puma Magnify Nitro 3, Saucony Triumph 24, Saucony Hurricane 26, Hoka Bondi 9, Hoka Clifton 11, Hoka Skyflow 2, New Balance 1080 v15, New Balance Fresh Foam X More v6, Brooks Glycerin 23, Brooks Ghost 18, Mizuno Wave Sky 9, Olympikus Corre Max, Olympikus Corre 5, Fila Float Maxxi 2 Pro
-
-* TREINADORES DIÁRIOS / VERSÁTEIS / CUSTO-BENEFÍCIO
-Nike Pegasus 42, Nike Vomero 18, Adidas Adizero SL 2, Adidas Supernova Rise 2, Adidas Supernova Solution 2, Puma Velocity Nitro 4, Puma Electrify Nitro 4, Saucony Ride 19, Saucony Axon 4, Hoka Clifton 11, New Balance 880 v15, Brooks Ghost 18, Mizuno Wave Rider 30, Fila Racer T2, Olympikus Corre 5, Olympikus Corre Vento 3
-
-* VELOCIDADE / TIROS / BAIXO PERFIL
-Nike Streakfly 2, Adidas Adizero Takumi Sen 10, Adidas Adizero Takumi Sen 11, Puma Liberate Nitro 2, Saucony Sinister 2, New Balance FuelCell Rebel v5, Mizuno Hyperwarp 96, Mizuno Wave Rebellion Flash 3, Fila KR7 Pro, Fila KR7, Olympikus Corre Vento 3
-
-* ESTABILIDADE / CONTROLE DE PISADA
-Nike Structure 26, Adidas Supernova Solution 2, Puma ForeverRun Nitro 2, Saucony Guide 18, Saucony Hurricane 26, Hoka Arahi 8, Hoka Gaviota 6, New Balance Fresh Foam X 860 v15, Brooks Adrenaline GTS 25, Brooks Glycerin GTS 23, Mizuno Wave Horizon 8
-
-* TRAIL / TERRA / MONTANHA
-Nike Pegasus Trail 5, Nike Ultrafly Trail 2, Adidas Terrex Agravic Speed Ultra, Adidas Terrex Agravic 3, Puma Voyage Nitro 3, Saucony Peregrine 15, Hoka Speedgoat 7, Hoka Tecton X 3, New Balance Fresh Foam X Hierro v9, Brooks Catamount 4, Mizuno Wave Mujin 10, Fila Float Trail, Olympikus Corre Trilha 3
-
-* PLACA / TREINO DE PERFORMANCE — CUSTO-BENEFÍCIO
-Nike Zoom Fly 6, Adidas Adizero Boston 13, Puma Deviate Nitro 4, Saucony Endorphin Speed 5, Hoka Mach X 2, Mizuno Neo Vista 3, Fila Racer T2 Xtreme
-
+SUPER TRAINERS / PLACA — TREINOS RÁPIDOS E LONGÕES
+Nike Zoom Fly 6, Nike Pegasus Plus, Adidas Adizero Boston 13, Adidas Adizero EVO SL, Puma Deviate Nitro 4, Saucony Endorphin Speed 5, Hoka Mach X 2, New Balance FuelCell Rebel v5, Mizuno Neo Vista 3, Asics Magic Speed 4, Asics Superblast 2, Fila Racer T2 Xtreme, Olympikus Corre Grafeno 3
+AMORTECIMENTO MÁXIMO / LONGÕES / CONFORTO
+Nike Vomero Plus, Nike Vomero 18, Nike Invincible 3, Adidas Supernova Prima 2, Adidas Supernova Rise 2, Puma MagMax Nitro 2, Puma Magnify Nitro 3, Saucony Triumph 24, Saucony Hurricane 26, Hoka Bondi 9, Hoka Clifton 11, Hoka Skyflow 2, New Balance 1080 v15, New Balance Fresh Foam X More v6, Brooks Glycerin 23, Brooks Ghost 18, Mizuno Wave Sky 9, Asics Gel-Nimbus 28, Asics Gel-Cumulus 27, Asics Novablast 5, Olympikus Corre Max, Olympikus Corre 5, Fila Float Maxxi 2 Pro
+TREINADORES DIÁRIOS / VERSÁTEIS / CUSTO-BENEFÍCIO
+Nike Pegasus 42, Nike Vomero 18, Adidas Adizero SL 2, Adidas Supernova Rise 2, Adidas Supernova Solution 2, Puma Velocity Nitro 4, Puma Electrify Nitro 4, Saucony Ride 19, Saucony Axon 4, Hoka Clifton 11, New Balance 880 v15, Brooks Ghost 18, Mizuno Wave Rider 30, Asics Novablast 5, Asics Gel-Cumulus 27, Asics GT-2000 14, Fila Racer T2, Olympikus Corre 5, Olympikus Corre Vento 3
+VELOCIDADE / TIROS / BAIXO PERFIL
+Nike Streakfly 2, Adidas Adizero Takumi Sen 10, Adidas Adizero Takumi Sen 11, Puma Liberate Nitro 2, Saucony Sinister 2, New Balance FuelCell Rebel v5, Mizuno Hyperwarp 96, Mizuno Wave Rebellion Flash 3, Asics Magic Speed 4, Asics Metaspeed Sky Paris, Asics Metaspeed Edge Paris, Fila KR7 Pro, Fila KR7, Olympikus Corre Vento 3
+ESTABILIDADE / CONTROLE DE PISADA
+Nike Structure 26, Adidas Supernova Solution 2, Puma ForeverRun Nitro 2, Saucony Guide 18, Saucony Hurricane 26, Hoka Arahi 8, Hoka Gaviota 6, New Balance Fresh Foam X 860 v15, Brooks Adrenaline GTS 25, Brooks Glycerin GTS 23, Mizuno Wave Horizon 8, Asics GT-2000 14, Asics Gel-Kayano 32, Asics Gel-Nimbus 28
+TRAIL / TERRA / MONTANHA
+Nike Pegasus Trail 5, Nike Ultrafly Trail 2, Adidas Terrex Agravic Speed Ultra, Adidas Terrex Agravic 3, Puma Voyage Nitro 3, Saucony Peregrine 15, Hoka Speedgoat 7, Hoka Tecton X 3, New Balance Fresh Foam X Hierro v9, Brooks Catamount 4, Mizuno Wave Mujin 10, Asics Trabuco Max 4, Asics Gel-Trabuco 13, Asics Fuji Speed 3, Fila Float Trail, Olympikus Corre Trilha 3
+PLACA / TREINO DE PERFORMANCE — CUSTO-BENEFÍCIO
+Nike Zoom Fly 6, Adidas Adizero Boston 13, Puma Deviate Nitro 4, Saucony Endorphin Speed 5, Hoka Mach X 2, Mizuno Neo Vista 3, Asics Magic Speed 4, Fila Racer T2 Xtreme
+SUPER TÊNIS / PLACA DE CARBONO — COMPETIÇÃO
+Nike Vaporfly 4, Nike Alphafly 3, Adidas Adizero Adios Pro 5, Adidas Adizero Adios Pro Evo 3, Puma Fast-R Nitro Elite 2, Puma Deviate Nitro Elite 3, Saucony Endorphin Pro 5, Saucony Endorphin Elite 3, Hoka Cielo X1 3.0, New Balance FuelCell SuperComp Elite v5, Brooks Hyperion Elite 5, Mizuno Wave Rebellion Pro 3, Asics Metaspeed Sky Tokyo, Asics Metaspeed Edge Tokyo, Fila Racer Carbon 3, Olympikus Corre Pace, Olympikus Corre Supra 2
 Fluxo de Recomendação de Compra:
 1. Se faltarem detalhes de objetivo/orçamento, pergunte brevemente (Ex: objetivo, teto de orçamento, foco em placa ou conforto).
 2. Ao recomendar de 2 a 3 opções:
