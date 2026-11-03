@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Sora } from "next/font/google";
 import { GoogleTagManager } from "@next/third-parties/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
 const sora = Sora({
@@ -98,6 +99,7 @@ export default function RootLayout({
       <body className="min-h-full bg-neutral-950 text-neutral-100 selection:bg-orange-500 selection:text-white font-sans">
         {gtmId && <GoogleTagManager gtmId={gtmId} />}
         {children}
+        <SpeedInsights />
       </body>
     </html>
   );
